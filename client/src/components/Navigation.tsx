@@ -85,13 +85,13 @@ const Navigation = () => {
                   {item.name}
                 </Link>
               ))}
-              <Link
+              {/* <Link
                 href="/login"
                 className="block w-full mt-4 text-center border-2 border-gray-900 px-4 py-2 rounded-lg font-medium hover:bg-gray-900 hover:text-white transition-colors"
                 onClick={() => setIsOpen(false)}
               >
                 Login
-              </Link>
+              </Link> */}
             </div>
           </motion.div>
         )}

@@ -12,7 +12,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "NextLearn - Online Learning Platform",
+  title: "PerfinexaCloudTech ",
   description: "A modern online learning platform built with Next.js, React, and Tailwind CSS",
 };
 
