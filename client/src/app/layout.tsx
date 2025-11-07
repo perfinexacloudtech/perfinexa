@@ -5,17 +5,22 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Toaster } from "react-hot-toast";
 import SmoothScroll from "@/components/common/SmoothScroll";
-import { Analytics } from "@vercel/analytics/next"
+import { Analytics } from "@vercel/analytics/next";
+import {  getOrganizationSchema } from "@/lib/seo";
+import { getPageMetadata } from "@/lib/Metadata";
+import Script from "next/script";
 
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
 });
 
-export const metadata: Metadata = {
-  title: "PerfinexaCloudTech ",
+
+export const metadata = getPageMetadata({
+  title: "Perfinexa CloudTech",
   description: "A modern online learning platform built with Next.js, React, and Tailwind CSS",
-};
+  path: "/"
+});
 
 export default function RootLayout({
   children,
@@ -24,14 +29,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} font-inter antialiased bg-green-50`} suppressHydrationWarning={true}>
+      <body
+        className={`${inter.variable} font-inter antialiased bg-green-50`}
+        suppressHydrationWarning={true}
+      >
+        <Script id="org-jsonld" type="application/ld+json">
+          {JSON.stringify(getOrganizationSchema())}
+        </Script>
         <Analytics />
         <Toaster position="top-center" />
-         <SmoothScroll />
+        <SmoothScroll />
         <Navigation />
-        <main className="min-h-screen">
-          {children}
-        </main>
+        <main className="min-h-screen">{children}</main>
         <Footer />
       </body>
     </html>
