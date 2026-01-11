@@ -5,6 +5,7 @@ import { Toaster } from "react-hot-toast";
 import SmoothScroll from "@/components/common/SmoothScroll";
 import { Analytics } from "@vercel/analytics/next";
 import { getPageMetadata } from "@/lib/Metadata";
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 const inter = Inter({
   subsets: ["latin"],
@@ -29,6 +30,7 @@ export default function RootLayout({
         className={`${inter.variable} font-inter antialiased bg-green-50 overflow-visible`}
         suppressHydrationWarning={true}
       >
+         <GoogleAnalytics gaId="G-ZM11PQYS6D" />
         <Analytics />
         <Toaster position="top-center" />
 
